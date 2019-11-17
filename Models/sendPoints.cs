@@ -14,6 +14,7 @@ namespace MIS4200Team8v2.Models
 {
     public class sendPoints
     {
+        [Key]
         public int points { get; set; }
         public int userID { get; set; }
 
