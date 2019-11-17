@@ -15,6 +15,7 @@ namespace MIS4200Team8v2.Models
         [Key]
         [Required]
         public int userID { get; set; }
+        [ForeignKey("userID")]
         [Required]
         [Display(Name = "First Name")]
         public string firstName { get; set; }
@@ -27,8 +28,7 @@ namespace MIS4200Team8v2.Models
         [Required]
         [Display(Name = "Points")]
         public int points { get; set; }
-        public Guid userID { get; set; }
-        [ForeignKey("userID")]
+       
         public virtual UserDetail UserDetail { get; set; }
     }
 }
