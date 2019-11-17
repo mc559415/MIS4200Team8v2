@@ -8,6 +8,7 @@ namespace MIS4200Team8v2.Models
 {
     public class userDetail
     {
+        [Key]
         public int userID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
