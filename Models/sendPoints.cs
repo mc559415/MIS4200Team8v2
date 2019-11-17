@@ -14,7 +14,7 @@ namespace MIS4200Team8v2.Models
     {
         [Key]
         [Required]
-        public Guid ID { get; set; }
+        public int userID { get; set; }
         [Required]
         [Display(Name = "First Name")]
         public string firstName { get; set; }
