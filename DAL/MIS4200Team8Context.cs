@@ -9,7 +9,7 @@ namespace MIS4200Team8v2.DAL
 {
     public class MIS4200Team8Context : DbContext
     {
-        public MIS4200Team8Context() : base ("MIS4200Team8v11")
+        public MIS4200Team8Context() : base ("DefaultConnection")
         {
 
         }
