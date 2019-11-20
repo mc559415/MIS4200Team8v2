@@ -51,6 +51,7 @@ namespace MIS4200Team8v2.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.userDetails.Add(userDetail);
                 db.SaveChanges();
                 return RedirectToAction("Index");
