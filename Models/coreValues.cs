@@ -15,5 +15,7 @@ namespace MIS4200Team8v2.Models
         public int valueID { get; set; }
         public string valueName { get; set; }
         public int PointValue { get; set; }
+
+        ICollection<coreValues> CoreValues { get; set; }
     }
 }
