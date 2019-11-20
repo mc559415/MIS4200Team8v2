@@ -18,7 +18,8 @@ namespace MIS4200Team8v2.Controllers
         // GET: sendPoints
         public ActionResult Index()
         {
-            return View(db.sendPointss.ToList());
+            var sendPointss = db.sendPointss.Include(s => s.CoreValues);
+            return View(sendPointss.ToList());
         }
 
         // GET: sendPoints/Details/5
@@ -39,6 +40,7 @@ namespace MIS4200Team8v2.Controllers
         // GET: sendPoints/Create
         public ActionResult Create()
         {
+            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName");
             return View();
         }
 
@@ -47,7 +49,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "points,userID")] sendPoints sendPoints)
+        public ActionResult Create([Bind(Include = "pointsID,userID,valueID")] sendPoints sendPoints)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace MIS4200Team8v2.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
             return View(sendPoints);
         }
 
@@ -71,6 +74,7 @@ namespace MIS4200Team8v2.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
             return View(sendPoints);
         }
 
@@ -79,7 +83,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "points,userID")] sendPoints sendPoints)
+        public ActionResult Edit([Bind(Include = "pointsID,userID,valueID")] sendPoints sendPoints)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace MIS4200Team8v2.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
             return View(sendPoints);
         }
 
