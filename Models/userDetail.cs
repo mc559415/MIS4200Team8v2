@@ -9,7 +9,7 @@ namespace MIS4200Team8v2.Models
     public class userDetail
     {
         [Key]
-        public int userID { get; set; }
+        public Guid userID { get; set; }
         
         [Display (Name ="First Name")]
         [Required(ErrorMessage ="User first name required")]
