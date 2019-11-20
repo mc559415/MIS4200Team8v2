@@ -11,7 +11,7 @@ namespace MIS4200Team8v2.DAL
     {
         public MIS4200Team8Context() : base ("DefaultConnection")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MIS4200Team8Context, MIS4200Team8v2.Migrations.MISContext.Configuration>("DefaultConnection"));
         }
         public DbSet<userDetail> userDetails{ get; set; }
         public DbSet<sendPoints> sendPointss { get; set; }
