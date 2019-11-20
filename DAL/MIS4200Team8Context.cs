@@ -17,6 +17,9 @@ namespace MIS4200Team8v2.DAL
         public DbSet<sendPoints> sendPointss { get; set; }
         public DbSet<coreValues> coreValuess { get; set; }
 
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
