@@ -10,6 +10,7 @@ namespace MIS4200Team8v2.Migrations.MISContext
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             MigrationsDirectory = @"Migrations\MISContext";
             ContextKey = "MIS4200Team8v2.DAL.MIS4200Team8Context";
         }
