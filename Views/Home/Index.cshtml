@@ -11,25 +11,23 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Get to Know Your Coworkers</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development. blah blah blah. akeicpapekd. oefoijwefoij. Testing.
+           Take a look at your coworkers and get to know them a little better 
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://localhost:44336/userDetails">Take a Look &raquo;</a></p>
         <li>@Html.ActionLink("userDetails", "Index", "userDetails")</li>
-        <li>@Html.ActionLink("sendPoints", "Index", "sendPoints")</li>
-        <li>@Html.ActionLink("coreValues", "Index", "coreValues")</li>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Send Some Points</h2>
+        <p>Noticed your coworkers are embodying our core values, send them points!</p>
+        <p><a class="btn btn-default" href="https://localhost:44336/sendPoints">Send Points &raquo;</a></p>
+        <li>@Html.ActionLink("sendPoints", "Index", "sendPoints")</li>
+    </div>
+    <div class="col-md-4">
+        <h2>Why We're Here</h2>
+        <p>Check out our core values to see what we represent and why we're here</p>
+        <p><a class="btn btn-default" href="https://localhost:44336/coreValues">Check Them Out &raquo;</a></p>
+        <li>@Html.ActionLink("coreValues", "Index", "coreValues")</li>
     </div>
 </div>
