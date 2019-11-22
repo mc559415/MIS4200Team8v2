@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Team8v2.DAL;
 using MIS4200Team8v2.Models;
+using Microsoft.AspNet.Identity;
 
 namespace MIS4200Team8v2.Controllers
 {
@@ -51,6 +52,9 @@ namespace MIS4200Team8v2.Controllers
         {
             if (ModelState.IsValid)
             {
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                userDetail.userID = memberID;
                 db.userDetails.Add(userDetail);
                 db.SaveChanges();
                 return RedirectToAction("Index");
