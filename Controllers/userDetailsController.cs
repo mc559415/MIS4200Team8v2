@@ -23,7 +23,7 @@ namespace MIS4200Team8v2.Controllers
         }
 
         // GET: userDetails/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {

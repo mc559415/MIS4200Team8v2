@@ -41,7 +41,9 @@ namespace MIS4200Team8v2.Controllers
         public ActionResult Create()
         {
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName");
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "lastName");
             return View();
+
         }
 
         // POST: sendPoints/Create
