@@ -20,5 +20,6 @@ namespace MIS4200Team8v2.Models
         public virtual userDetail UserDetail { get; set; }
         public int valueID { get; set; }
         public virtual coreValues CoreValues { get; set; }
+        public int PointValue { get; set; }
     }
 }
