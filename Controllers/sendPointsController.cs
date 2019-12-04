@@ -18,7 +18,7 @@ namespace MIS4200Team8v2.Controllers
         // GET: sendPoints
         public ActionResult Index()
         {
-            var sendPointss = db.sendPointss.Include(s => s.CoreValues);
+            var sendPointss = db.sendPointss.Include(s => s.CoreValues).Include(s => s.UserDetail);
             return View(sendPointss.ToList());
         }
 
@@ -41,6 +41,7 @@ namespace MIS4200Team8v2.Controllers
         public ActionResult Create()
         {
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName");
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName");
             return View();
         }
 
@@ -49,7 +50,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pointsID,userID,valueID")] sendPoints sendPoints)
+        public ActionResult Create([Bind(Include = "pointsID,userID,valueID,PointValue")] sendPoints sendPoints)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,7 @@ namespace MIS4200Team8v2.Controllers
             }
 
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
             return View(sendPoints);
         }
 
@@ -75,6 +77,7 @@ namespace MIS4200Team8v2.Controllers
                 return HttpNotFound();
             }
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
             return View(sendPoints);
         }
 
@@ -83,7 +86,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "pointsID,userID,valueID")] sendPoints sendPoints)
+        public ActionResult Edit([Bind(Include = "pointsID,userID,valueID,PointValue")] sendPoints sendPoints)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +95,7 @@ namespace MIS4200Team8v2.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
             return View(sendPoints);
         }
 

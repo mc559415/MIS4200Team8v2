@@ -15,15 +15,23 @@ namespace MIS4200Team8v2.Controllers
     public class userDetailsController : Controller
     {
         private MIS4200Team8Context db = new MIS4200Team8Context();
-
         // GET: userDetails
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            var testusers = from u in db.userDetails select u;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                testusers = testusers.Where(u =>
+                u.lastName.Contains(searchString)
+                    || u.firstName.Contains(searchString));
+                // if here, users were found so view them
+                return View(testusers.ToList());
+            }
             return View(db.userDetails.ToList());
         }
 
         // GET: userDetails/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(Guid? id)
         {
             if (id == null)
             {
