@@ -263,6 +263,7 @@
     <Content Include="Views\sendPoints\Details.cshtml" />
     <Content Include="Views\sendPoints\Edit.cshtml" />
     <Content Include="Views\sendPoints\Index.cshtml" />
+    <Content Include="Views\sendPoints\NotAuthenticated.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

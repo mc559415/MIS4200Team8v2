@@ -17,6 +17,7 @@ namespace MIS4200Team8v2.Models
         [Key]
         public int pointsID { get; set; }
         public Guid userID { get; set; }
+        [Display(Name = "User")]
         public virtual userDetail UserDetail { get; set; }
         public int valueID { get; set; }
         [Display(Name = "Core Value")]
@@ -25,8 +26,8 @@ namespace MIS4200Team8v2.Models
         public int PointValue { get; set; }
         [Required]
         [Display(Name = "Time of Recognition")]
+        
         public DateTime recognitionTime { get; set; }
-
         [Display(Name ="Description")]
         public string description { get; set; }
 
