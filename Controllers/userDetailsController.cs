@@ -18,6 +18,14 @@ namespace MIS4200Team8v2.Controllers
         // GET: userDetails
         public ActionResult Index(string searchString)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.userDetails.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
             var testusers = from u in db.userDetails select u;
             if (!String.IsNullOrEmpty(searchString))
             {
