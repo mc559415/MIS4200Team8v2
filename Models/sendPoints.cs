@@ -19,7 +19,17 @@ namespace MIS4200Team8v2.Models
         public Guid userID { get; set; }
         public virtual userDetail UserDetail { get; set; }
         public int valueID { get; set; }
+        [Display(Name = "Core Value")]
+        [Required(ErrorMessage = "Must Select a Value")]
         public virtual coreValues CoreValues { get; set; }
         public int PointValue { get; set; }
+        [Required]
+        [Display(Name = "Time of Recognition")]
+        public DateTime recognitionTime { get; set; }
+
+        [Display(Name ="Description")]
+        public string description { get; set; }
+
+
     }
 }
