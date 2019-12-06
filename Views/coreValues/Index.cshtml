@@ -4,15 +4,21 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Core Values</h2>
+<h2>Index</h2>
 
 <p>
-    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.valueName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.recognitionTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
         </th>
         <th></th>
     </tr>
@@ -21,6 +27,12 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.valueName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.recognitionTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.valueID }) |
