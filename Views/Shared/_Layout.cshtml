@@ -24,8 +24,11 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Coworker's Details", "Index", "userDetails")</li>
+                    <li>@Html.ActionLink("Send Points", "Index", "sendPoints")</li>
+                    <li>@Html.ActionLink("Core Values", "Index", "coreValues")</li>
                 </ul>
-                <form class="navbar-form navbar-left" action="/action_page.php">
+                @*<form class="navbar-form navbar-left" action="/action_page.php">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search">
                         <div class="input-group-btn">
@@ -34,7 +37,7 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form>*@
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
