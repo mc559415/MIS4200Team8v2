@@ -33,7 +33,6 @@ namespace MIS4200Team8v2.Models
         [Display (Name ="Current Company Position")]
         [Required(ErrorMessage ="Current position title required")]
         
-
         public string positionTitle { get; set; }
         ICollection<sendPoints> sendPoints { get; set; }
 

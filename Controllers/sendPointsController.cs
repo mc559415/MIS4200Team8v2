@@ -25,6 +25,14 @@ namespace MIS4200Team8v2.Controllers
         // GET: sendPoints/Details/5
         public ActionResult Details(int? id)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.userDetails.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
