@@ -47,7 +47,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "valueID,valueName,recognitionTime,description")] coreValues coreValues)
+        public ActionResult Create([Bind(Include = "valueID,valueName,description")] coreValues coreValues)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace MIS4200Team8v2.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "valueID,valueName,recognitionTime,description")] coreValues coreValues)
+        public ActionResult Edit([Bind(Include = "valueID,valueName,description")] coreValues coreValues)
         {
             if (ModelState.IsValid)
             {
