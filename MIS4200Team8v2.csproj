@@ -253,17 +253,16 @@
     <Content Include="Views\userDetails\Edit.cshtml" />
     <Content Include="Views\userDetails\Index.cshtml" />
     <Content Include="Views\userDetails\NotAuthenticated.cshtml" />
-    <Content Include="Views\sendPoints\Create.cshtml" />
-    <Content Include="Views\sendPoints\Delete.cshtml" />
-    <Content Include="Views\sendPoints\Details.cshtml" />
-    <Content Include="Views\sendPoints\Edit.cshtml" />
-    <Content Include="Views\sendPoints\Index.cshtml" />
-    <Content Include="Views\sendPoints\NotAuthenticated.cshtml" />
     <Content Include="Views\coreValues\Create.cshtml" />
     <Content Include="Views\coreValues\Delete.cshtml" />
     <Content Include="Views\coreValues\Details.cshtml" />
     <Content Include="Views\coreValues\Edit.cshtml" />
     <Content Include="Views\coreValues\Index.cshtml" />
+    <Content Include="Views\sendPoints\Create.cshtml" />
+    <Content Include="Views\sendPoints\Delete.cshtml" />
+    <Content Include="Views\sendPoints\Details.cshtml" />
+    <Content Include="Views\sendPoints\Edit.cshtml" />
+    <Content Include="Views\sendPoints\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
