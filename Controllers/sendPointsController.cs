@@ -60,7 +60,7 @@ namespace MIS4200Team8v2.Controllers
             }
 
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
-            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName"+"lastName", sendPoints.userID);
+            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
             return View(sendPoints);
         }
 
