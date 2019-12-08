@@ -26,12 +26,14 @@ namespace MIS4200Team8v2.Models
 
         public virtual coreValues CoreValues { get; set; }
         [Display(Name = "Point Value")]
+        [Range(0, 50, ErrorMessage = "Can only be between 0 and 50")]
         public int PointValue { get; set; }
         [Required]
         [Display(Name = "Time of Recognition")]
         
         public DateTime recognitionTime { get; set; }
         [Display(Name ="Description")]
+        [StringLength(50)]
         public string description { get; set; }
 
 
