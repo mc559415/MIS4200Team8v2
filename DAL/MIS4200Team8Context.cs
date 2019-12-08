@@ -21,5 +21,7 @@ namespace MIS4200Team8v2.DAL
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<MIS4200Team8v2.Models.Recognition> Recognitions { get; set; }
     }
 }

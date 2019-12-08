@@ -11,127 +11,112 @@ using MIS4200Team8v2.Models;
 
 namespace MIS4200Team8v2.Controllers
 {
-    public class sendPointsController : Controller
+    public class RecognitionsController : Controller
     {
         private MIS4200Team8Context db = new MIS4200Team8Context();
 
-        // GET: sendPoints
+        // GET: Recognitions
         public ActionResult Index()
         {
-            var sendPointss = db.sendPointss.Include(s => s.CoreValues).Include(s => s.UserDetail);
-            return View(sendPointss.ToList());
+            var recognitions = db.Recognitions.Include(r => r.userDetails);
+            return View(recognitions.ToList());
         }
 
-        // GET: sendPoints/Details/5
+        // GET: Recognitions/Details/5
         public ActionResult Details(int? id)
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return View(db.userDetails.ToList());
-            }
-            else
-            {
-                return View("NotAuthenticated");
-            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sendPoints sendPoints = db.sendPointss.Find(id);
-            if (sendPoints == null)
+            Recognition recognition = db.Recognitions.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(sendPoints);
+            return View(recognition);
         }
 
-        // GET: sendPoints/Create
+        // GET: Recognitions/Create
         public ActionResult Create()
         {
-
-            
-            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName");
-
-            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName");
+            ViewBag.ID = new SelectList(db.userDetails, "userID", "firstName");
             return View();
         }
 
-        // POST: sendPoints/Create
+        // POST: Recognitions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "pointsID,userID,valueID,PointValue,recognitionTime,description")] sendPoints sendPoints)
+        public ActionResult Create([Bind(Include = "RecognitionID,ID,DateofRecognition")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
-                db.sendPointss.Add(sendPoints);
+                db.Recognitions.Add(recognition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
-            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
-            return View(sendPoints);
+            ViewBag.ID = new SelectList(db.userDetails, "userID", "firstName", recognition.ID);
+            return View(recognition);
         }
 
-        // GET: sendPoints/Edit/5
+        // GET: Recognitions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sendPoints sendPoints = db.sendPointss.Find(id);
-            if (sendPoints == null)
+            Recognition recognition = db.Recognitions.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
-            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
-            return View(sendPoints);
+            ViewBag.ID = new SelectList(db.userDetails, "userID", "firstName", recognition.ID);
+            return View(recognition);
         }
 
-        // POST: sendPoints/Edit/5
+        // POST: Recognitions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "pointsID,userID,valueID,PointValue,recognitionTime,description")] sendPoints sendPoints)
+        public ActionResult Edit([Bind(Include = "RecognitionID,ID,DateofRecognition")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sendPoints).State = EntityState.Modified;
+                db.Entry(recognition).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
-            ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
-            return View(sendPoints);
+            ViewBag.ID = new SelectList(db.userDetails, "userID", "firstName", recognition.ID);
+            return View(recognition);
         }
 
-        // GET: sendPoints/Delete/5
+        // GET: Recognitions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            sendPoints sendPoints = db.sendPointss.Find(id);
-            if (sendPoints == null)
+            Recognition recognition = db.Recognitions.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(sendPoints);
+            return View(recognition);
         }
 
-        // POST: sendPoints/Delete/5
+        // POST: Recognitions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            sendPoints sendPoints = db.sendPointss.Find(id);
-            db.sendPointss.Remove(sendPoints);
+            Recognition recognition = db.Recognitions.Find(id);
+            db.Recognitions.Remove(recognition);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
