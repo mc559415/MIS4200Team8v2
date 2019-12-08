@@ -171,6 +171,7 @@
     <Compile Include="Controllers\coreValuesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecognitionsController.cs" />
     <Compile Include="Controllers\sendPointsController.cs" />
     <Compile Include="Controllers\userDetailsController.cs" />
     <Compile Include="DAL\MIS4200Team8Context.cs" />
@@ -180,6 +181,7 @@
     <Compile Include="Migrations\MISContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\coreValues.cs" />
+    <Compile Include="Models\Recognition.cs" />
     <Compile Include="Models\sendPoints.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -263,6 +265,11 @@
     <Content Include="Views\sendPoints\Details.cshtml" />
     <Content Include="Views\sendPoints\Edit.cshtml" />
     <Content Include="Views\sendPoints\Index.cshtml" />
+    <Content Include="Views\Recognitions\Create.cshtml" />
+    <Content Include="Views\Recognitions\Delete.cshtml" />
+    <Content Include="Views\Recognitions\Details.cshtml" />
+    <Content Include="Views\Recognitions\Edit.cshtml" />
+    <Content Include="Views\Recognitions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
