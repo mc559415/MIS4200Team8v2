@@ -21,6 +21,8 @@ namespace MIS4200Team8v2.Controllers
         {
             var sendPointss = db.sendPointss.Include(s => s.CoreValues).Include(s => s.UserDetail);
             return View(sendPointss.ToList());
+
+
         }
 
         // GET: sendPoints/Details/5
@@ -76,6 +78,7 @@ namespace MIS4200Team8v2.Controllers
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName", sendPoints.valueID);
             ViewBag.userID = new SelectList(db.userDetails, "userID", "firstName", sendPoints.userID);
             return View(sendPoints);
+
         }
 
         // GET: sendPoints/Edit/5

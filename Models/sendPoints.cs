@@ -16,17 +16,21 @@ namespace MIS4200Team8v2.Models
     {
         [Key]
         public int pointsID { get; set; }
-        [Display(Name = "User")]
+       
         public Guid userID { get; set; }
-
         public virtual userDetail UserDetail { get; set; }
+
+
         [Display(Name = "Core Value")]
         [Required(ErrorMessage = "Must Select a Value")]
         public int valueID { get; set; }
-
         public virtual coreValues CoreValues { get; set; }
+
+
+
         [Display(Name = "Point Value")]
         [Range(0, 50, ErrorMessage = "Can only be between 0 and 50")]
+
         public int PointValue { get; set; }
         [Required]
         [Display(Name = "Time of Recognition")]
