@@ -16,7 +16,7 @@ namespace MIS4200Team8v2.Models
         [Display (Name = "Core Value")]
         public string valueName { get; set; }
         
-        
+        [Display (Name = "Description")]
         public string description { get; set; }
 
 
