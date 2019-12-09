@@ -26,6 +26,7 @@ namespace MIS4200Team8v2.Controllers
             {
                 return View("NotAuthenticated");
             }
+
             var testusers = from u in db.userDetails select u;
             if (!String.IsNullOrEmpty(searchString))
             {
