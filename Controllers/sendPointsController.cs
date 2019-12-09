@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using MIS4200Team8v2.DAL;
 using MIS4200Team8v2.Models;
+using System.Net.Mail;
 
 namespace MIS4200Team8v2.Controllers
 {
@@ -49,6 +50,8 @@ namespace MIS4200Team8v2.Controllers
         public ActionResult Create()
         {
 
+
+            
             
             ViewBag.valueID = new SelectList(db.coreValuess, "valueID", "valueName");
 
@@ -58,7 +61,7 @@ namespace MIS4200Team8v2.Controllers
 
         // POST: sendPoints/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "pointsID,userID,valueID,PointValue,recognitionTime,description")] sendPoints sendPoints)
