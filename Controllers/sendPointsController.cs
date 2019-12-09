@@ -19,6 +19,15 @@ namespace MIS4200Team8v2.Controllers
         // GET: sendPoints
         public ActionResult Index()
         {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                return View(db.sendPointss.ToList());
+            }
+            else
+            {
+                return View("NotAuthenticated");
+            }
             var sendPointss = db.sendPointss.Include(s => s.CoreValues).Include(s => s.UserDetail);
             return View(sendPointss.ToList());
 

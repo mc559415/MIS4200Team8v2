@@ -7,7 +7,7 @@
 <h2>Point Log</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Send Points", "Create")
 
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,9 +68,9 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.pointsID }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.pointsID }) |
             @Html.ActionLink("Details", "Details", new { id=item.pointsID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.pointsID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.pointsID })*@
         </td>
     </tr>
 }
