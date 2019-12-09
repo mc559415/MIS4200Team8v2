@@ -20,22 +20,31 @@ namespace MIS4200Team8v2.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                var testusers = from u in db.userDetails select u;
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    testusers = testusers.Where(u =>
+                    u.lastName.Contains(searchString)
+                        || u.firstName.Contains(searchString));
+                    // if here, users were found so view them
+                    return View(testusers.ToList());
+                }
                 return View(db.userDetails.ToList());
             }
             else
             {
                 return View("NotAuthenticated");
             }
-            var testusers = from u in db.userDetails select u;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                testusers = testusers.Where(u =>
-                u.lastName.Contains(searchString)
-                    || u.firstName.Contains(searchString));
-                // if here, users were found so view them
-                return View(testusers.ToList());
-            }
-            return View(db.userDetails.ToList());
+           //var testusers = from u in db.userDetails select u;
+           // if (!String.IsNullOrEmpty(searchString))
+           // {
+           //     testusers = testusers.Where(u =>
+           //     u.lastName.Contains(searchString)
+           //         || u.firstName.Contains(searchString));
+           //     // if here, users were found so view them
+           //     return View(testusers.ToList());
+           // }
+           // return View(db.userDetails.ToList());
         }
 
         // GET: userDetails/Details/5
